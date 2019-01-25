@@ -150,8 +150,8 @@ public final class SysFSI2C: I2CInterface {
       #endif
     }
 
-    public func readData(_ address: Int, command: UInt8) -> [UInt8] {
-        var buf: [UInt8] = [UInt8](repeating:0, count: 32)
+    public func readData(_ address: Int, command: UInt8, bufferLen: UInt8) -> [UInt8] {
+        var buf: [UInt8] = [UInt8](repeating:0, count: bufferLen)
 
         setSlaveAddress(address)
 
