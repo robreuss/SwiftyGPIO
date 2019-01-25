@@ -339,11 +339,11 @@ public final class SysFSI2C: I2CInterface {
     }
 
     private func i2c_smbus_read_block_data(command: UInt8, values: inout [UInt8]) -> Int32 {
-        var data = [UInt8](repeating:0, count: 6) // I2C_MAX_LENGTH+1
+        var data = [UInt8](repeating:0, count: I2C_MAX_LENGTH+1) // 
 
         let r = smbus_ioctl(rw: I2C_SMBUS_READ,
                             command: command,
-                            size: I2C_SMBUS_WORD_DATA,
+                            size: I2C_SMBUS_BLOCK_DATA,
                             data: &data)
         if r >= 0 {
             for i in 0..<Int(data[0]) {
