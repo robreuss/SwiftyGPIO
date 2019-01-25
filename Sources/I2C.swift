@@ -76,7 +76,7 @@ public protocol I2CInterface {
     func readByte(_ address: Int) -> UInt8
     func readByte(_ address: Int, command: UInt8) -> UInt8
     func readWord(_ address: Int, command: UInt8) -> UInt16
-    func readData(_ address: Int, command: UInt8, bufferLen: UInt8) -> [UInt8]
+    func readData(_ address: Int, command: UInt8, bufferLen: Int) -> [UInt8]
     func writeQuick(_ address: Int)
     func writeByte(_ address: Int, value: UInt8)
     func writeByte(_ address: Int, command: UInt8, value: UInt8)
@@ -150,7 +150,7 @@ public final class SysFSI2C: I2CInterface {
       #endif
     }
 
-    public func readData(_ address: Int, command: UInt8, bufferLen: UInt8) -> [UInt8] {
+    public func readData(_ address: Int, command: UInt8, bufferLen: Int) -> [UInt8] {
         var buf: [UInt8] = [UInt8](repeating:0, count: bufferLen)
 
         setSlaveAddress(address)
