@@ -76,7 +76,7 @@ public protocol I2CInterface {
     func readByte(_ address: Int) -> UInt8
     func readByte(_ address: Int, command: UInt8) -> UInt8
     func readWord(_ address: Int, command: UInt8) -> UInt16
-    func readData(_ address: Int, command: UInt8) -> [UInt8]
+    func readData(_ address: Int, command: UInt8, bufferLen) -> [UInt8]
     func writeQuick(_ address: Int)
     func writeByte(_ address: Int, value: UInt8)
     func writeByte(_ address: Int, command: UInt8, value: UInt8)
