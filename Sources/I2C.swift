@@ -343,7 +343,7 @@ public final class SysFSI2C: I2CInterface {
 
         let r = smbus_ioctl(rw: I2C_SMBUS_READ,
                             command: command,
-                            size: I2C_SMBUS_BLOCK_DATA,
+                            size: I2C_SMBUS_WORD_DATA,
                             data: &data)
         if r >= 0 {
             for i in 0..<Int(data[0]) {
