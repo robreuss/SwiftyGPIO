@@ -321,7 +321,7 @@ public final class SysFSI2C: I2CInterface {
             return Int32(data[0])
         } else {
             return -1
-        }
+        }   
     }
 
     private func i2c_smbus_read_word_data(command: UInt8) -> Int32 {
